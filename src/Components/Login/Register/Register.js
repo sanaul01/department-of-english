@@ -37,7 +37,7 @@ const Register = () => {
     return (
         <Container>
             <Grid container spacing={2}>
-                <Grid item xs={12} md={6} style={{ marginTop: 55 }}>
+                <Grid item xs={12} md={12} style={{ marginTop: 55 }}>
                     <Typography variant="body1" gutterBottom
                         style={{
                             fontWeight: 'bold',
@@ -130,9 +130,6 @@ const Register = () => {
                             If al ready register <span style={{ color: "#B01D14" }}>Please login</span>
                         </NavLink>
                     </Grid>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <img style={{ height: 520 }} src="https://img.favpng.com/15/6/17/primary-education-school-learning-png-favpng-9KFrhfc28Ddc7vqEpMdnWhFBW_t.jpg" alt="" />
                 </Grid>
             </Grid>
         </Container>
