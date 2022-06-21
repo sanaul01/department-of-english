@@ -74,7 +74,16 @@ const Login = () => {
                             />
                         </FormControl>
                         <br />
-                        <Button
+                        
+                    <Button style={{
+                                background: "#1B5E20",
+                                width: "250px",
+                                marginTop: "20px"
+                            }}
+                    >Login</Button>
+
+                    </form>
+                    <Button
                             style={{
                                 background: "#1B5E20",
                                 width: "250px",
@@ -82,9 +91,7 @@ const Login = () => {
                             }}>
                             Google Sing In
                         </Button>
-
-
-                    </form>
+                    <br />
                     <NavLink to="/register"
                         style={{
                             textDecoration: 'none',
