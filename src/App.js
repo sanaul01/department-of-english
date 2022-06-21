@@ -12,6 +12,8 @@ import FictionDrama from './Components/FourthYear/FictionDrama/FictionDrama';
 import ClassicsTranslation from './Components/FourthYear/ClassicsTranslation/ClassicsTranslation';
 import ContinentalLiterature from './Components/FourthYear/ContinentalLiterature/ContinentalLiterature';
 import LanguageTeaching from './Components/FourthYear/LanguageTeaching/LanguageTeaching';
+import Login from './Components/Login/Login/Login';
+import Register from './Components/Login/Register/Register';
 
 
 
@@ -32,6 +34,8 @@ function App() {
         <Route path="/classics-translation" element={<ClassicsTranslation />} />
         <Route path="/continental-literature" element={<ContinentalLiterature />} />
         <Route path="/language-teaching" element={<LanguageTeaching />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

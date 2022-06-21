@@ -15,6 +15,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Menus from './Menu/Menus';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -184,7 +185,7 @@ const Navbar = () => {
             <MenuIcon onClick={openMenu}/>
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            <img style={{height: "65px", marginBottom: "none"}} src="https://t3.ftcdn.net/jpg/02/72/78/44/360_F_272784427_ct2LctMwGutHuaxtPjOPq5DgKCzteLF6.jpg" alt="" />
+            <img style={{height: "65px", marginBottom: "-9px"}} src="https://t3.ftcdn.net/jpg/02/72/78/44/360_F_272784427_ct2LctMwGutHuaxtPjOPq5DgKCzteLF6.jpg" alt="" />
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -202,15 +203,11 @@ const Navbar = () => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
+              
+            <NavLink to="login" style={{textDecoration:'none', color:'white'}}>sign in</NavLink>
+             
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            
             <IconButton
               edge="end"
               aria-label="account of current user"
@@ -219,7 +216,7 @@ const Navbar = () => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <img style={{width: 40, height: 40, borderRadius: 30}} src="https://images.pexels.com/photos/117139/pexels-photo-117139.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>
