@@ -37,9 +37,22 @@ const Login = () => {
     return (
         <Container>
             <Grid container spacing={2}>
-                <Grid item xs={12} md={6} style={{ marginTop: 35 }}>
-                    <Typography variant="body1" gutterBottom>Login</Typography>
+                <Grid item xs={12} md={6} style={{ marginTop: 55 }}>
+                    <Typography variant="body1" gutterBottom
+                        style={{
+                            fontWeight: 'bold',
+                            fontSize: 35,
+                            color: "#1B5E20",
+                        }}
+                    >L<span style={{ color: "#B01D14" }}>o</span>g<span style={{ color: "#B01D14" }}>i</span>n</Typography>
                     <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            style={{ width: "250px" }}
+                            id="standard-basic"
+                            label="Name"
+                            variant="standard"
+                        />
+                        <br />
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
@@ -74,41 +87,45 @@ const Login = () => {
                             />
                         </FormControl>
                         <br />
-                        
-                    <Button style={{
-                                background: "#1B5E20",
-                                width: "250px",
-                                marginTop: "20px"
-                            }}
-                    >Login</Button>
+
+                        <Button style={{
+                            background: "#1B5E20",
+                            width: "100px",
+                            marginTop: "20px",
+                            fontWeight: "bold",
+                            color: "white"
+                        }}
+                        >Login</Button>
 
                     </form>
                     <Button
-                            style={{
-                                background: "#1B5E20",
-                                width: "250px",
-                                marginTop: "20px"
-                            }}>
-                            Google Sing In
-                        </Button>
-                    <br />
-                    <NavLink to="/register"
                         style={{
-                            textDecoration: 'none',
-                            color: 'blue'
+                            background: "#1B5E20",
+                            width: "250px",
+                            marginTop: "20px",
+                            color: "white",
+                            fontWeight: "bold",
                         }}>
-                        <Button
+                        google sing in
+                    </Button>
+                    <br />
+                    <Grid style={{ marginTop: "20px" }}>
+                        <NavLink to="/register"
                             style={{
-                                marginTop: "20px"
+                                textDecoration: 'none',
+                                fontWeight: "bold",
+                                color: "#1B5E20",
+
                             }}>
-                            If you not register Please register
-                        </Button>
-                    </NavLink>
+                            If you not register <span style={{ color: "#B01D14" }}>Please register</span>
+
+                        </NavLink>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <img 
-                    style={{ height: 520 }} 
-                    src="https://img.favpng.com/15/6/17/primary-education-school-learning-png-favpng-9KFrhfc28Ddc7vqEpMdnWhFBW_t.jpg" alt="" />
+                    <img
+                        style={{ height: 520 }}
+                        src="https://img.favpng.com/15/6/17/primary-education-school-learning-png-favpng-9KFrhfc28Ddc7vqEpMdnWhFBW_t.jpg" alt="" />
                 </Grid>
             </Grid>
         </Container>

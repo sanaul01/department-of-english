@@ -37,9 +37,22 @@ const Register = () => {
     return (
         <Container>
             <Grid container spacing={2}>
-                <Grid item xs={12} md={6} style={{ marginTop: 35 }}>
-                    <Typography variant="body1" gutterBottom>Register</Typography>
+                <Grid item xs={12} md={6} style={{ marginTop: 55 }}>
+                    <Typography variant="body1" gutterBottom
+                        style={{
+                            fontWeight: 'bold',
+                            fontSize: 35,
+                            color: "#1B5E20",
+                        }}
+                    >R<span style={{ color: "#B01D14" }}>e</span>g<span style={{ color: "#B01D14" }}>i</span>s<span style={{ color: "#B01D14" }}>t</span>e<span style={{ color: "#B01D14" }}>r</span></Typography>
                     <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            style={{ width: "250px" }}
+                            id="standard-basic"
+                            label="Name"
+                            variant="standard"
+                        />
+                        <br />
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
@@ -95,34 +108,28 @@ const Register = () => {
                             />
                         </FormControl>
                         <br />
-                        
-                    <Button
-                    style={{
-                        background: "#1B5E20",
-                        width: "250px",
-                        marginTop: "20px"
-                    }}
-                    >Register</Button>
 
-                    </form>
-                    <Button
+                        <Button
                             style={{
                                 background: "#1B5E20",
-                                width: "250px",
-                                marginTop: "20px"
+                                width: "100px",
+                                marginTop: "20px",
+                                fontWeight: "bold",
+                                color: "white"
+                            }}
+                        >Register</Button>
+
+                    </form>
+                    <Grid style={{ marginTop: "20px" }}>
+                        <NavLink to="/login"
+                            style={{
+                                textDecoration: 'none',
+                                fontWeight: "bold",
+                                color: "#1B5E20",
                             }}>
-                            Google Sing In
-                        </Button>
-                    <br />
-                    <NavLink to="/login"
-                        style={{
-                            textDecoration: 'none',
-                            color: 'blue',
-                        }}>
-                        <Button style={{ marginTop: "20px" }}>
-                            If al ready register Please login
-                        </Button>
-                    </NavLink>
+                            If al ready register <span style={{ color: "#B01D14" }}>Please login</span>
+                        </NavLink>
+                    </Grid>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ height: 520 }} src="https://img.favpng.com/15/6/17/primary-education-school-learning-png-favpng-9KFrhfc28Ddc7vqEpMdnWhFBW_t.jpg" alt="" />
