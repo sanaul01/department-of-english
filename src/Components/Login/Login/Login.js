@@ -1,13 +1,23 @@
 import { Button, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
 import { VisibilityOff, Visibility } from '@material-ui/icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import banner1 from "../../../images/banner1.jpg"
 
 
 const Login = () => {
-    const handleLoginSubmit = (e) => {
 
+    const [loginData, setLoginData] = useState({});
+
+    const handleOnChange = (e)=>{
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = {...loginData}
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+    
+    const handleLoginSubmit = (e) => {
+        alert("submit")
         e.preventDefault();
     }
 
@@ -30,7 +40,6 @@ const Login = () => {
         });
     };
 
-    console.log(values.password)
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
@@ -50,6 +59,8 @@ const Login = () => {
                             style={{ width: "250px" }}
                             id="standard-basic"
                             label="Name"
+                            name="name"
+                            onChange={handleOnChange}
                             variant="standard"
                         />
                         <br />
@@ -58,6 +69,8 @@ const Login = () => {
                             id="standard-basic"
                             label="Email"
                             type="email"
+                            name="email"
+                            onChange={handleOnChange}
                             variant="standard"
                         />
                         <br />
@@ -66,10 +79,14 @@ const Login = () => {
                                 m: 1,
                                 width: '25ch',
                             }}
-                            variant="standard">
+                            variant="standard"
+                            name="password"
+                            onChange={handleOnChange}
+                            >
                             <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
                             <Input
                                 id="standard-adornment-password"
+                                name="password"
                                 type={values.showPassword ? 'text' : 'password'}
                                 value={values.password}
                                 onChange={handleChange('password')}
@@ -88,7 +105,10 @@ const Login = () => {
                         </FormControl>
                         <br />
 
-                        <Button style={{
+                        <Button 
+                        variant="contained"
+                        type='submit'
+                        style={{
                             background: "#1B5E20",
                             width: "100px",
                             marginTop: "20px",
@@ -113,11 +133,13 @@ const Login = () => {
                         <NavLink to="/register"
                             style={{
                                 textDecoration: 'none',
-                                fontWeight: "bold",
+                                
                                 color: "#1B5E20",
 
                             }}>
-                            If you not register <span style={{ color: "#B01D14" }}>Please register</span>
+                            <Button variant="text" style={{fontWeight: "bold",}}>
+                            New user?<span style={{ color: "#B01D14" }}> Please register</span>
+                            </Button>
 
                         </NavLink>
                     </Grid>
