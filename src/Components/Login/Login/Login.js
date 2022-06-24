@@ -15,12 +15,13 @@ const Login = () => {
         newLoginData[field] = value;
         setLoginData(newLoginData);
     }
-    
+
     const handleLoginSubmit = (e) => {
         alert("submit")
         e.preventDefault();
     }
 
+    /* ===========Password setting part============= */
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
@@ -58,15 +59,6 @@ const Login = () => {
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
-                            label="Name"
-                            name="name"
-                            onChange={handleOnChange}
-                            variant="standard"
-                        />
-                        <br />
-                        <TextField
-                            style={{ width: "250px" }}
-                            id="standard-basic"
                             label="Email"
                             type="email"
                             name="email"
@@ -74,6 +66,8 @@ const Login = () => {
                             variant="standard"
                         />
                         <br />
+
+                        {/* ===========Password part========== */}
                         <FormControl style={{ marginTop: 10 }}
                             sx={{
                                 m: 1,
@@ -118,6 +112,8 @@ const Login = () => {
                         >Login</Button>
 
                     </form>
+
+                    {/* ==========Sign in with google============ */}
                     <Button
                         style={{
                             background: "#1B5E20",

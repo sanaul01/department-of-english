@@ -14,12 +14,14 @@ import ContinentalLiterature from './Components/FourthYear/ContinentalLiterature
 import LanguageTeaching from './Components/FourthYear/LanguageTeaching/LanguageTeaching';
 import Login from './Components/Login/Login/Login';
 import Register from './Components/Login/Register/Register';
+import AuthProvider from './context/AuthProvider/AuthProvider';
 
 
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <Navbar/>
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -37,6 +39,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      </AuthProvider>
     </div>
   );
 }

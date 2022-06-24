@@ -2,10 +2,13 @@ import { Button, Container, FormControl, Grid, IconButton, Input, InputAdornment
 import { VisibilityOff, Visibility } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
+    const {registerUser, isLoading} = useAuth();
 
     const handleOnChange = (e) => {
         const field = e.target.name;
@@ -19,10 +22,12 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
+        registerUser(loginData.email, loginData.password )
+
         e.preventDefault();
     }
 
-    /* handle shown password1 */
+    /* ========handle shown password1============ */
     const [values, setValues] = React.useState({
         amount: '',
         password: '',
@@ -30,22 +35,19 @@ const Register = () => {
         weightRange: '',
         showPassword: false,
     });
-
     const handleChange = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
-
     const handleClickShowPassword = () => {
         setValues({
             ...values,
             showPassword: !values.showPassword,
         });
     };
-
-
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
 
 
     /* handle shown password2 */
@@ -56,19 +58,15 @@ const Register = () => {
         weightRange: '',
         showPassword: false,
     });
-
     const handleChange2 = (prop) => (event) => {
         setValues2({ ...values2, [prop]: event.target.value });
     };
-
     const handleClickShowPassword2 = () => {
         setValues2({
             ...values2,
             showPassword: !values2.showPassword,
         });
     };
-
-
     const handleMouseDownPassword2 = (event) => {
         event.preventDefault();
     };
@@ -85,16 +83,9 @@ const Register = () => {
                             color: "#1B5E20",
                         }}
                     >R<span style={{ color: "#B01D14" }}>e</span>g<span style={{ color: "#B01D14" }}>i</span>s<span style={{ color: "#B01D14" }}>t</span>e<span style={{ color: "#B01D14" }}>r</span></Typography>
-                    <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            style={{ width: "250px" }}
-                            id="standard-basic"
-                            label="Name"
-                            name="name"
-                            onChange={handleOnChange}
-                            variant="standard"
-                        />
-                        <br />
+
+                    {/* =========Register form============= */}
+                    { !isLoading && <form onSubmit={handleLoginSubmit}>
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
@@ -105,6 +96,8 @@ const Register = () => {
                             variant="standard"
                         />
                         <br />
+
+                        {/* ============Password part one============= */}
                         <FormControl style={{ marginTop: 10 }}
                             sx={{
                                 m: 1,
@@ -135,6 +128,7 @@ const Register = () => {
                             />
                         </FormControl>
                         <br />
+
                         {/* Confirm password */}
                         <FormControl style={{ marginTop: 10 }}
                             sx={{
@@ -177,7 +171,9 @@ const Register = () => {
                             }}
                         >Register</Button>
 
-                    </form>
+                    </form>}
+                    {isLoading && <CircularProgress/>}
+
                     <br />
                     <Grid style={{ marginTop: "20px" }}>
                         <NavLink to="/login"
@@ -187,7 +183,11 @@ const Register = () => {
                                 color: "#1B5E20",
 
                             }}>
-                            <Button variant="text" style={{ fontWeight: "bold", }}>
+                            <Button 
+                            variant="text" 
+                            style={{ 
+                                fontWeight: "bold", 
+                            }}>
                                 Al ready registered?<span style={{ color: "#B01D14" }}> Please login</span>
                             </Button>
 
