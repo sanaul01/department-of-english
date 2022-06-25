@@ -2,11 +2,12 @@ import { Button, Container, FormControl, Grid, IconButton, Input, InputAdornment
 import { VisibilityOff, Visibility } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
 
     const [loginData, setLoginData] = useState({});
+    const {loginUser} = useAuth();
 
     const handleOnChange = (e)=>{
         const field = e.target.name;
@@ -14,12 +15,12 @@ const Login = () => {
         const newLoginData = {...loginData}
         newLoginData[field] = value;
         setLoginData(newLoginData);
-    }
+    };
 
     const handleLoginSubmit = (e) => {
-        alert("submit")
+        loginUser(loginData.email, loginData.password)
         e.preventDefault();
-    }
+    };
 
     /* ===========Password setting part============= */
     const [values, setValues] = React.useState({

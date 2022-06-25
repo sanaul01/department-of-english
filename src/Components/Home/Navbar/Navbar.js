@@ -86,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
 const Navbar = () => {
 
   const { user, logOut } = useAuth();
-
   const [menuEl, setMenuEl] = React.useState(null);
 
   const openMenu = (event) => {

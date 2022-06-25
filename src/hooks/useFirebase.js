@@ -5,7 +5,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 initializeFirebase();
 const useFirebase = () =>{
     const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     const auth = getAuth();
 
@@ -46,7 +46,7 @@ const useFirebase = () =>{
             setIsLoading(false)
         });
         return ()=>unsubscribe;
-    },[])
+    },[]);
 
     const logOut = () =>{
         setIsLoading(true)
@@ -59,7 +59,6 @@ const useFirebase = () =>{
         })
         .finally(()=>setIsLoading(false))
     }
-
 
     return {
         user,

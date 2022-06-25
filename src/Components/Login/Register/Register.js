@@ -49,7 +49,6 @@ const Register = () => {
     };
 
 
-
     /* handle shown password2 */
     const [values2, setValues2] = React.useState({
         amount: '',
@@ -190,7 +189,6 @@ const Register = () => {
                             }}>
                                 Al ready registered?<span style={{ color: "#B01D14" }}> Please login</span>
                             </Button>
-
                         </NavLink>
                     </Grid>
                 </Grid>
