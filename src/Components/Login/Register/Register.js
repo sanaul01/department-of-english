@@ -1,14 +1,16 @@
 import { Button, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
-import { VisibilityOff, Visibility } from '@material-ui/icons';
+import { VisibilityOff, Visibility} from '@material-ui/icons';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { Alert, AlertTitle } from '@material-ui/lab';
+
 
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
-    const {registerUser, isLoading} = useAuth();
+    const { user, authError, registerUser, isLoading } = useAuth();
 
     const handleOnChange = (e) => {
         const field = e.target.name;
@@ -22,7 +24,7 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password )
+        registerUser(loginData.email, loginData.password)
 
         e.preventDefault();
     }
@@ -84,7 +86,7 @@ const Register = () => {
                     >R<span style={{ color: "#B01D14" }}>e</span>g<span style={{ color: "#B01D14" }}>i</span>s<span style={{ color: "#B01D14" }}>t</span>e<span style={{ color: "#B01D14" }}>r</span></Typography>
 
                     {/* =========Register form============= */}
-                    { !isLoading && <form onSubmit={handleLoginSubmit}>
+                    {!isLoading && <form onSubmit={handleLoginSubmit}>
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
@@ -171,7 +173,7 @@ const Register = () => {
                         >Register</Button>
 
                     </form>}
-                    {isLoading && <CircularProgress/>}
+                    {isLoading && <CircularProgress />}
 
                     <br />
                     <Grid style={{ marginTop: "20px" }}>
@@ -182,14 +184,21 @@ const Register = () => {
                                 color: "#1B5E20",
 
                             }}>
-                            <Button 
-                            variant="text" 
-                            style={{ 
-                                fontWeight: "bold", 
-                            }}>
+                            <Button
+                                variant="text"
+                                style={{
+                                    fontWeight: "bold",
+                                }}>
                                 Al ready registered?<span style={{ color: "#B01D14" }}> Please login</span>
                             </Button>
                         </NavLink>
+                    </Grid>
+                    <Grid xs={3} md={3} style={{margin: "auto"}}>
+                    {user?.email && <Alert severity="success">
+                        <AlertTitle>Success</AlertTitle>
+                        User created successfully
+                    </Alert>}
+                    {authError && <Alert>{authError}</Alert>}
                     </Grid>
                 </Grid>
             </Grid>

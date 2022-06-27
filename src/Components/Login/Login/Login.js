@@ -1,13 +1,15 @@
-import { Button, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
+import { Box, Button, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
 import { VisibilityOff, Visibility } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { Alert, AlertTitle } from '@material-ui/lab';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Login = () => {
 
     const [loginData, setLoginData] = useState({});
-    const {loginUser} = useAuth();
+    const { user, authError, loginUser, isLoading} = useAuth();
 
     const handleOnChange = (e)=>{
         const field = e.target.name;
@@ -56,7 +58,7 @@ const Login = () => {
                             color: "#1B5E20",
                         }}
                     >L<span style={{ color: "#B01D14" }}>o</span>g<span style={{ color: "#B01D14" }}>i</span>n</Typography>
-                    <form onSubmit={handleLoginSubmit}>
+                    {!isLoading &&<form onSubmit={handleLoginSubmit}>
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
@@ -112,7 +114,7 @@ const Login = () => {
                         }}
                         >Login</Button>
 
-                    </form>
+                    </form>}
 
                     {/* ==========Sign in with google============ */}
                     <Button
@@ -139,6 +141,16 @@ const Login = () => {
                             </Button>
 
                         </NavLink>
+                    </Grid>
+                    {isLoading && <CircularProgress />}
+                    <Grid xs={3} md={3} style={{margin: "auto"}}>
+                    <Box style={{padding: "20px"}}>
+                    {user?.email && <Alert severity="success">
+                        <AlertTitle>Success</AlertTitle>
+                        login successfully
+                    </Alert>}
+                    {authError && <Alert>{authError}</Alert>}
+                    </Box>
                     </Grid>
                 </Grid>
             </Grid>
