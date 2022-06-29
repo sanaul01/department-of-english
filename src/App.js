@@ -15,30 +15,47 @@ import LanguageTeaching from './Components/FourthYear/LanguageTeaching/LanguageT
 import Login from './Components/Login/Login/Login';
 import Register from './Components/Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import ProtectedRoute from './Components/Login/ProtectedRoute/ProtectedRoute';
+
+
+
+
+
+
+
 
 
 
 function App() {
+
   return (
     <div className="App">
       <AuthProvider>
-      <Navbar/>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/criticism" element={<LiteraryCriticism />} />
-        <Route path="/19-novel" element={<NineteenCenturyNovel />} />
-        <Route path="/20-poetry" element={<TwentyCenturyPoetry />} />
-        <Route path="/modern-drama" element={<ModernDrama />} />
-        <Route path="/20-novel" element={<TwentyCenturyNovel />} />
-        <Route path="/american-poetry" element={<AmericanPoetry />} />
-        <Route path="/fiction-drama" element={<FictionDrama />} />
-        <Route path="/classics-translation" element={<ClassicsTranslation />} />
-        <Route path="/continental-literature" element={<ContinentalLiterature />} />
-        <Route path="/language-teaching" element={<LanguageTeaching />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/criticism" element={<LiteraryCriticism />} />
+          <Route path="/19-novel" element={<NineteenCenturyNovel />} />
+          <Route path="/20-poetry" element={<TwentyCenturyPoetry />} />
+          <Route path="/modern-drama" element={<ModernDrama />} />
+          <Route path="/20-novel" element={<TwentyCenturyNovel />} />
+          <Route path="/american-poetry" element={<AmericanPoetry />} />
+          <Route path="/fiction-drama" element={<FictionDrama />} />
+          <Route path="/classics-translation" element={<ClassicsTranslation />} />
+          <Route path="/continental-literature" element={<ContinentalLiterature />} />
+          {/* <Route path="/language-teaching" element={<LanguageTeaching />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          <Route path="/language-teaching" element=
+            {<ProtectedRoute>
+              <LanguageTeaching />
+            </ProtectedRoute>
+            }
+          />
+
+        </Routes>
       </AuthProvider>
     </div>
   );
