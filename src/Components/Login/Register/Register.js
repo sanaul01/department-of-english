@@ -1,7 +1,7 @@
 import { Button, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
 import { VisibilityOff, Visibility} from '@material-ui/icons';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Alert, AlertTitle } from '@material-ui/lab';
@@ -11,11 +11,13 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 const Register = () => {
     const [loginData, setLoginData] = useState({});
     const { user, authError, registerUser, isLoading } = useAuth();
+    const navigate = useNavigate();
 
     const handleOnChange = (e) => {
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData }
+        console.log(newLoginData);
         newLoginData[field] = value;
         setLoginData(newLoginData);
     }
@@ -24,8 +26,7 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password)
-
+        registerUser(loginData.email, loginData.password, loginData.name, navigate)
         e.preventDefault();
     }
 
@@ -87,6 +88,17 @@ const Register = () => {
 
                     {/* =========Register form============= */}
                     {!isLoading && <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            style={{ width: "250px" }}
+                            id="standard-basic"
+                            label="Your Name"
+                            type="text"
+                            name="name"
+                            onChange={handleOnChange}
+                            variant="standard"
+                        />
+
+                        <br />
                         <TextField
                             style={{ width: "250px" }}
                             id="standard-basic"
@@ -193,7 +205,7 @@ const Register = () => {
                             </Button>
                         </NavLink>
                     </Grid>
-                    <Grid xs={3} md={3} style={{margin: "auto"}}>
+                    <Grid item xs={3} md={3} style={{margin: "auto"}}>
                     {user?.email && <Alert severity="success">
                         <AlertTitle>Success</AlertTitle>
                         User created successfully

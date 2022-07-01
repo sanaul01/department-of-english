@@ -1,7 +1,7 @@
 import { Box, Button, Container, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, TextField, Typography } from '@material-ui/core';
 import { VisibilityOff, Visibility } from '@material-ui/icons';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { Alert, AlertTitle } from '@material-ui/lab';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -9,7 +9,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const Login = () => {
 
     const [loginData, setLoginData] = useState({});
-    const { user, authError, loginUser, isLoading} = useAuth();
+    const { user, singInWithGoogle, authError, loginUser, isLoading} = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleOnChange = (e)=>{
         const field = e.target.name;
@@ -20,7 +22,7 @@ const Login = () => {
     };
 
     const handleLoginSubmit = (e) => {
-        loginUser(loginData.email, loginData.password)
+        loginUser(loginData.email, loginData.password, location, navigate)
         e.preventDefault();
     };
 
@@ -47,6 +49,10 @@ const Login = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
+
+    const handleGoogelSingIn =()=>{
+        singInWithGoogle(location, navigate)
+    }
     return (
         <Container>
             <Grid container spacing={2}>
@@ -118,6 +124,7 @@ const Login = () => {
 
                     {/* ==========Sign in with google============ */}
                     <Button
+                        onClick={handleGoogelSingIn}
                         style={{
                             background: "#1B5E20",
                             width: "250px",
@@ -143,7 +150,7 @@ const Login = () => {
                         </NavLink>
                     </Grid>
                     {isLoading && <CircularProgress />}
-                    <Grid xs={3} md={3} style={{margin: "auto"}}>
+                    <Grid item xs={3} md={3} style={{margin: "auto"}}>
                     <Box style={{padding: "20px"}}>
                     {user?.email && <Alert severity="success">
                         <AlertTitle>Success</AlertTitle>

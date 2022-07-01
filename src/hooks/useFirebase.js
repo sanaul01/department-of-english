@@ -1,20 +1,36 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Components/Login/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, onAuthStateChanged, GoogleAuthProvider, updateProfile, signOut } from "firebase/auth";
 
 initializeFirebase();
 const useFirebase = () =>{
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [authError, setAuthError] = useState('');
+    
 
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
 
-    const registerUser = (name, email, password) =>{
+    const registerUser = ( email, password, name, navigate) =>{
         setIsLoading(true);
-        createUserWithEmailAndPassword(auth, name, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
+            
             setAuthError('');
+            const newUser = { email, displayName: name};
+            setUser(newUser);
+
+            /* ===========Update profile name============ */
+            updateProfile(auth.currentUser, {
+                displayName: name
+              }).then(() => {
+
+              }).catch((error) => {
+                setAuthError(error.message);
+              });
+
+            navigate('/')
         })
         .catch((error) =>{
             setAuthError(error.message);
@@ -22,10 +38,12 @@ const useFirebase = () =>{
         .finally(()=>setIsLoading(false));
     };
 
-    const loginUser =(email, password)=>{
+    const loginUser =(email, password, location, navigate)=>{
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential)=>{
+            const destination = location?.state?.from || '/home';
+            navigate(destination);
             setAuthError('');
         })
         .catch((error)=>{
@@ -33,6 +51,22 @@ const useFirebase = () =>{
         })
         .finally(()=>setIsLoading(false));
     };
+
+
+    const singInWithGoogle =(location, navigate)=>{
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+        .then((result)=>{
+            const user = result.user;
+            const destination = location?.state?.from || '/home';
+            navigate(destination);
+            setAuthError('');
+        })
+        .catch((error)=>{
+            setAuthError(error.message);
+        })
+        .finally(()=>setIsLoading(false));
+    }
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (user)=>{
@@ -64,6 +98,7 @@ const useFirebase = () =>{
         isLoading,
         authError,
         registerUser,
+        singInWithGoogle,
         loginUser,
         logOut,
     }
