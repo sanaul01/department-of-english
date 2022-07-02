@@ -18,6 +18,8 @@ import Menus from './Menu/Menus';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import { Button } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -142,23 +144,29 @@ const Navbar = () => {
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
+      
     >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
+      {user?.email ?
+        <MenuItem onClick={logOut}>
+          <IconButton aria-label="show 4 new mails" color="inherit">
+            <ExitToAppIcon />
+          </IconButton>
+          <p>LogOut</p>
+        </MenuItem>
+        :
+        <MenuItem onClick={logOut}>
+          <IconButton aria-label="show 4 new mails" color="inherit">
+            <ExitToAppIcon />
+          </IconButton>
+          <NavLink to="login"
+            style={{ textDecoration: 'none' }}>
+            <p style={{ color: 'black' }}>
+              Sign in
+            </p>
+          </NavLink>
+        </MenuItem>
+      }
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -208,35 +216,35 @@ const Navbar = () => {
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
 
-                {/* ========Login and LogOut button============ */}
+              {/* ========Login and LogOut button============ */}
               <IconButton aria-label="show 4 new mails" color="inherit">
                 {
                   user?.email ?
-                    <Button 
-                    onClick={logOut} 
-                    style={{ 
-                      color: 'white', 
-                      fontWeight: 'bold' 
-                    }}>
+                    <Button
+                      onClick={logOut}
+                      style={{
+                        color: 'white',
+                        fontWeight: 'bold'
+                      }}>
                       LogOut
-                      </Button>
+                    </Button>
                     :
-                    <NavLink to="login" 
-                    style={{ 
-                      textDecoration: 'none' 
+                    <NavLink to="login"
+                      style={{
+                        textDecoration: 'none'
                       }}>
-                      <Button 
-                      style={{ 
-                        color: 'white', 
-                        fontWeight: 'bold' 
-                      }}>
+                      <Button
+                        style={{
+                          color: 'white',
+                          fontWeight: 'bold'
+                        }}>
                         Sign in
-                        </Button>
+                      </Button>
                     </NavLink>
                 }
               </IconButton>
-              
-                {/* Icon button and image */}
+
+              {/* Icon button and image */}
               <IconButton
                 edge="end"
                 aria-label="account of current user"

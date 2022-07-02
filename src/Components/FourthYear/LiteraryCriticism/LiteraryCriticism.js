@@ -1,9 +1,10 @@
 import React from 'react';
+import LitHome from './Lit-Home/LitHome';
 
 const LiteraryCriticism = () => {
     return (
         <div>
-            <h4>Literary Criticism</h4>
+            <LitHome/>
         </div>
     );
 };
