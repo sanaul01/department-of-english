@@ -1,9 +1,10 @@
 import React from 'react';
+import ModernDramaHome from './ModernDramaHome/ModernDramaHome';
 
 const ModernDrama = () => {
     return (
         <div>
-            <h4>Modern Drama</h4>
+            <ModernDramaHome/>
         </div>
     );
 };

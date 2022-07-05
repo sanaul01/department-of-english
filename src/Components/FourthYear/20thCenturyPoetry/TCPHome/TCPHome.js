@@ -1,45 +1,44 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, Grid, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import banner1 from "../../../../images/banner1.png.jpg"
 
 const services = [
     {
-        name: "The Study of Poetry",
-        writer: "Metthew Arnold",
-        image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1387054522l/18923913.jpg",
+        name: "The Lake Isle of Innisfree, Easter 1916, The Second Comming, Sailing to Byzantium",
+        writer: "W.B.Yeats",
+        image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1387703814l/1270881.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/home'
 
     },
     {
-        name: "The Metaphysical Poets",
-        writer: "Thomas Stearns Eliot",
-        image: "https://pictures.abebooks.com/isbn/9781904919384-us.jpg",
+        name: "The Love Song of J.Alfred Prufrock, The Wast Land",
+        writer: "T.S.Eliot",
+        image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388198313l/79936.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/home'
 
     },
     {
-        name: "Introduction to Culture and Imperialism",
-        writer: "Edward Said",
-        image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1420942888l/869683.jpg",
+        name: "Poem in October",
+        writer: "Dylan Thomas",
+        image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348344294i/99275.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/20-poetry'
 
     },
     {
-        name: "The Rise of English",
-        writer: "Terry Eagleton",
-        image: "https://imgv2-1-f.scribdassets.com/img/audiobook/566767196/original/30d312e86b/1654677361?v=1",
+        name: "Morning Song, Words, The Rival, Crossing he Water",
+        writer: "Sylvia Plath",
+        image: "https://fivebooks.com/app/uploads/books/BC_006274058X.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/20-poetry'
 
     },
 ]
 
-const LitHome = () => {
-
+const TCPHome = () => {
     return (
         <Grid>
             <Grid container >
@@ -47,7 +46,7 @@ const LitHome = () => {
                     <img style={{ width: '100%', height: '100%' }} src={banner1} alt="" />
                 </Grid>
                 <Grid item xs={12} md={12} style={{margin: '20px 0 20px 0'}}>
-                    <Typography variant="h4" style={{ fontWeight: 'bold' }}>Literary Criticism</Typography>
+                    <Typography variant="h4" style={{ fontWeight: 'bold' }}>Tentieth Century Poetry</Typography>
                 </Grid>
                 <Grid item xs={12} md={12}>
                     <Grid item xs={12} md={12}>
@@ -101,4 +100,4 @@ const LitHome = () => {
     );
 };
 
-export default LitHome;
+export default TCPHome;

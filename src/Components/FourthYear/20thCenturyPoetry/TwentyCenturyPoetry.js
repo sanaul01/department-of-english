@@ -1,10 +1,11 @@
 
 import React from 'react';
+import TCPHome from './TCPHome/TCPHome';
 
 const TwentyCenturyPoetry = () => {
     return (
         <div>
-            <h4>Twenty century poetry</h4>
+            <TCPHome/>
         </div>
     );
 };

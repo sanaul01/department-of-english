@@ -1,9 +1,10 @@
 import React from 'react';
+import NineteenCenturyNovelHome from './NineteenCenturyNovelHome/NineteenCenturyNovelHome';
 
 const NineteenCenturyNovel = () => {
     return (
         <div>
-            <h4>Nineteen century novel</h4>
+            <NineteenCenturyNovelHome/>
         </div>
     );
 };

@@ -1,45 +1,44 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Container, Grid, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Typography } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
 import banner1 from "../../../../images/banner1.png.jpg"
 
 const services = [
     {
-        name: "The Study of Poetry",
-        writer: "Metthew Arnold",
-        image:"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1387054522l/18923913.jpg",
+        name: "Pride and Prejudice",
+        writer: "Jane Austen",
+        image:"https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/home'
 
     },
     {
-        name: "The Metaphysical Poets",
-        writer: "Thomas Stearns Eliot",
-        image: "https://pictures.abebooks.com/isbn/9781904919384-us.jpg",
+        name: "A Tale of Two Cities",
+        writer: "Charles Dickens",
+        image: "https://images.penguinrandomhouse.com/cover/9780451530578",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/home'
 
     },
     {
-        name: "Introduction to Culture and Imperialism",
-        writer: "Edward Said",
-        image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1420942888l/869683.jpg",
+        name: "Jane Eyre",
+        writer: "Charlotte Bronte",
+        image: "https://images-na.ssl-images-amazon.com/images/I/61c1BiBgvdL.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/20-poetry'
 
     },
     {
-        name: "The Rise of English",
-        writer: "Terry Eagleton",
-        image: "https://imgv2-1-f.scribdassets.com/img/audiobook/566767196/original/30d312e86b/1654677361?v=1",
+        name: "Tess of the D'Urbervilles",
+        writer: "Thomas Hardy",
+        image: "https://kbimages1-a.akamaihd.net/fb3736f2-341c-483e-889d-1199900a9b4e/1200/1200/False/tess-of-the-d-urbervilles-148.jpg",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere eius officia fugiat qui rerum doloremque, fuga necessitatibus animi in!",
         lk:'/20-poetry'
 
     },
 ]
 
-const LitHome = () => {
-
+const NineteenCenturyNovelHome = () => {
     return (
         <Grid>
             <Grid container >
@@ -47,7 +46,7 @@ const LitHome = () => {
                     <img style={{ width: '100%', height: '100%' }} src={banner1} alt="" />
                 </Grid>
                 <Grid item xs={12} md={12} style={{margin: '20px 0 20px 0'}}>
-                    <Typography variant="h4" style={{ fontWeight: 'bold' }}>Literary Criticism</Typography>
+                    <Typography variant="h4" style={{ fontWeight: 'bold' }}>Nineteen Century Novel</Typography>
                 </Grid>
                 <Grid item xs={12} md={12}>
                     <Grid item xs={12} md={12}>
@@ -101,4 +100,4 @@ const LitHome = () => {
     );
 };
 
-export default LitHome;
+export default NineteenCenturyNovelHome;

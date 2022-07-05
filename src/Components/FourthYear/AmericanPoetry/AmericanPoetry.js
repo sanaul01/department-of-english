@@ -1,9 +1,10 @@
 import React from 'react';
+import AmericanPoetryHome from './AmericanPoetryHome/AmericanPoetryHome';
 
 const AmericanPoetry = () => {
     return (
         <div>
-            <h4>American Poetry</h4>
+            <AmericanPoetryHome />
         </div>
     );
 };
