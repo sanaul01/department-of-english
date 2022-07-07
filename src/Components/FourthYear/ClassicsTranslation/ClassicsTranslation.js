@@ -1,9 +1,10 @@
 import React from 'react';
+import CTHome from './CTHome/CTHome';
 
 const ClassicsTranslation = () => {
     return (
         <div>
-            <h4>Classics in Translation</h4>
+            <CTHome />
         </div>
     );
 };

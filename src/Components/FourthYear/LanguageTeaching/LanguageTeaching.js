@@ -1,9 +1,10 @@
 import React from 'react';
+import LanguageTeachingHome from './LanguageTeachingHome/LanguageTeachingHome';
 
 const LanguageTeaching = () => {
     return (
         <div>
-            <h3>Approaches and Methods of Language Teaching</h3>
+            <LanguageTeachingHome />
         </div>
     );
 };

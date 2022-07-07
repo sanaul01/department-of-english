@@ -19,13 +19,6 @@ import ProtectedRoute from './Components/Login/ProtectedRoute/ProtectedRoute';
 
 
 
-
-
-
-
-
-
-
 function App() {
 
   return (

@@ -1,9 +1,10 @@
 import React from 'react';
+import ConLitHome from './ConLitHome/ConLitHome';
 
 const ContinentalLiterature = () => {
     return (
         <div>
-            <h4>Continental Literatury</h4>
+            <ConLitHome />
         </div>
     );
 };

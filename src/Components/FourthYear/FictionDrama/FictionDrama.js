@@ -1,9 +1,10 @@
 import React from 'react';
+import FictionDramaHome from './FictionDramaHome/FictionDramaHome';
 
 const FictionDrama = () => {
     return (
         <div>
-            <h4>American Literature: Fiction and Drama</h4>
+            <FictionDramaHome/>
         </div>
     );
 };
