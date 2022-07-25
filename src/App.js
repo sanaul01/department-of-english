@@ -17,6 +17,7 @@ import Register from './Components/Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import ProtectedRoute from './Components/Login/ProtectedRoute/ProtectedRoute';
 import NinethNovelPostData from './Components/FourthYear/19thCenturyNovel/NinethNovelPostData/NinethNovelPostData';
+import NCNDetails from './Components/FourthYear/19thCenturyNovel/19thcenturyNovelDetails/NCNDetails';
 
 
 
@@ -46,6 +47,12 @@ function App() {
           <Route path="/language-teaching" element=
             {<ProtectedRoute>
               <LanguageTeaching />
+            </ProtectedRoute>
+            }
+          />
+          <Route path="/detail/:novelId" element=
+            {<ProtectedRoute>
+              <NCNDetails />
             </ProtectedRoute>
             }
           />
