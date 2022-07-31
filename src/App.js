@@ -18,6 +18,7 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import ProtectedRoute from './Components/Login/ProtectedRoute/ProtectedRoute';
 import NinethNovelPostData from './Components/FourthYear/19thCenturyNovel/NinethNovelPostData/NinethNovelPostData';
 import NCNDetails from './Components/FourthYear/19thCenturyNovel/19thcenturyNovelDetails/NCNDetails';
+import NinethNovelPostQues from './Components/FourthYear/19thCenturyNovel/NinethNovelPostQues/NinethNovelPostQues';
 
 
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/classics-translation" element={<ClassicsTranslation />} />
           <Route path="/continental-literature" element={<ContinentalLiterature />} />
           <Route path="/19th-century-novel" element={<NinethNovelPostData />} />
+          <Route path="/19th-century-novel-question" element={<NinethNovelPostQues />} />
           {/* <Route path="/language-teaching" element={<LanguageTeaching />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

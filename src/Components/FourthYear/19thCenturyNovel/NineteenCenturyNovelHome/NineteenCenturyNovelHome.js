@@ -64,7 +64,7 @@ const NineteenCenturyNovelHome = () => {
                         <Grid container justifyContent="center">
                             {novels.map((novel, index) => (
                                 <Grid key={index} item xs={12} md={4}>
-                                    <NavLink to={`/detail/:${novel._id}`}
+                                    <NavLink to={`/detail/${novel?._id}`}
                                         style={{
                                             textDecoration: 'none',
                                             color: 'black'
@@ -95,7 +95,7 @@ const NineteenCenturyNovelHome = () => {
                                                         "{novel.writer}"
                                                     </Typography>
                                                     <Typography variant="body2" color="text.secondary">
-                                                        {novel.description}...<NavLink to={`/detail/:${novel._id}`}>see more</NavLink>
+                                                        {novel.description}...see more
                                                     </Typography>
                                                 </CardContent>
                                             </CardActionArea>
