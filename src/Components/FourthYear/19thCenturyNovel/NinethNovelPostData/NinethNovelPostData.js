@@ -12,10 +12,11 @@ const NinethNovelPostData = () => {
         setLoadData(newLoadData);
     };
 
-    const handleDataSubmit = (e)=>{
+    const handleDataSubmit = (e) => {
         const nineteenNovel = {
             ...loadData,
         }
+        console.log(nineteenNovel)
         fetch('http://localhost:5000/19th_century_novel', {
             method: 'POST',
             headers: {
@@ -23,27 +24,27 @@ const NinethNovelPostData = () => {
             },
             body: JSON.stringify(nineteenNovel)
         })
-        .then(res => res.json())
-        .then(data=>{
-            if(data.insertedId){
-                alert('added successfully')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('added successfully')
+                }
+            })
         e.preventDefault()
     }
 
     return (
         <div>
             <Grid container >
-                <Grid item xs={12} md={12} style={{marginTop:30}}>
-                    <Typography 
-                    variant="h4" 
-                    style={{
-                        fontWeight: 'bold' 
-                    }}>
+                <Grid item xs={12} md={12} style={{ marginTop: 30 }}>
+                    <Typography
+                        variant="h4"
+                        style={{
+                            fontWeight: 'bold'
+                        }}>
                         19th Century Novel post data
                     </Typography>
-                    <form onSubmit={handleDataSubmit} style={{marginTop:30}}>
+                    <form onSubmit={handleDataSubmit} style={{ marginTop: 30 }}>
                         <TextField
                             style={{ width: "90%" }}
                             id="standard-basic"
@@ -57,14 +58,14 @@ const NinethNovelPostData = () => {
                         <TextField
                             style={{width: "90%", marginTop: "15px" }}
                             id="standard-basic"
-                            label="Cover Photo url:"
+                            label= "image url"
                             name="image"
                             onBlur={handleOnBlur}
                             variant="outlined"
                         />
                         <br />
                         <TextField
-                            style={{width: "90%", marginTop: "15px" }}
+                            style={{ width: "90%", marginTop: "15px" }}
                             id="standard-basic"
                             label="Writer Name:"
                             type="text"
@@ -74,7 +75,7 @@ const NinethNovelPostData = () => {
                         />
                         <br />
                         <TextField
-                            style={{ width: "90%", marginTop: "15px"}}
+                            style={{ width: "90%", marginTop: "15px" }}
                             id="outlined-multiline-static"
                             label="Details:"
                             type="text"
@@ -85,16 +86,16 @@ const NinethNovelPostData = () => {
                             variant="outlined"
                         />
                         <br />
-                        <Button 
-                        variant="container" 
-                        type="submit"
-                        style={{ 
-                            width: "90%", 
-                            marginTop: "15px", 
-                            background: "#1B5E20",
-                            fontWeight: "bold",
-                            color: "white"
-                        }} 
+                        <Button
+                            variant="container"
+                            type="submit"
+                            style={{
+                                width: "90%",
+                                marginTop: "15px",
+                                background: "#1B5E20",
+                                fontWeight: "bold",
+                                color: "white"
+                            }}
                         >
                             Submit
                         </Button>
